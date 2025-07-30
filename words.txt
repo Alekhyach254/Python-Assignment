@@ -1,0 +1,1 @@
+Hi, I am Alekhya. I am a Python Developer with over 5 years of experience in the software development. I work mainly with Python and frameworks such as Django and Flask to build web applications and APIs. Along with this I am skilled with front-end technologies as well. Mostly I worked with HTML, CSS, JavaScript, and React.js for front end development.
