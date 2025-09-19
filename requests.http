@@ -1,0 +1,16 @@
+POST http://127.0.0.1:5000/products
+Content-Type: application/json
+
+{
+  "name": "Laptop",
+  "price": 1200.50,
+  "stock": 50
+}
+###
+GET http://127.0.0.1:5000/products
+###
+GET http://127.0.0.1:5000/products/1
+###
+GET http://127.0.0.1:5000/products/search?name=Laptop
+###
+GET http://127.0.0.1:5000/products/search?min_price=1000
