@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "dev_formatter": {
+            "format": "[DEV] - %(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        },
+        "prod_formatter": {
+            "format": "[PROD] - %(asctime)s - %(levelname)s - %(module)s: %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "dev_formatter",
+            "stream": "ext://sys.stdout"
+        },
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "INFO",
+            "formatter": "prod_formatter",
+            "filename": "app22.log",
+            "maxBytes": 10240,
+            "backupCount": 3
+        }
+    },
+    "loggers": {
+        "flask_app_dev": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": false
+        },
+        "flask_app_prod": {
+            "handlers": ["file"],
+            "level": "WARNING",
+            "propagate": false
+        }
+    },
+    "root": {
+        "level": "INFO",
+        "handlers": ["console"]
+    }
+}
