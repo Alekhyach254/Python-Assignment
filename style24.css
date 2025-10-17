@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+#photo {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+/* Base styling for all portfolio sections */
+.header-section, .about-section, .projects-section, .sidebar-section {
+    padding: 30px; /* Reduced padding slightly from old container */
+    background: white;
+    margin-bottom: 0; /* Grid gap handles spacing now */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ================================================= */
+/* 2. CSS GRID (Organizing Multiple Sections)        */
+/* ================================================= */
+.portfolio-grid {
+    /* 1. Enable Grid Layout */
+    display: grid; 
+    
+    /* 2. Define Columns: Main content area (1fr) and Contact/Sidebar (300px) */
+    grid-template-columns: 1fr 300px;
+    
+    /* 3. Define Named Areas for structure */
+    grid-template-areas: 
+        "header header"   /* Header (Home) spans both columns */
+        "about sidebar"   /* About section on left, Contact on right */
+        "projects sidebar";/* Projects section on left, Contact continues on right */
+    
+    /* 4. Set Spacing */
+    gap: 30px; 
+    
+    /* 5. Center the entire layout on the page */
+    max-width: 1200px; 
+    margin: 30px auto; 
+}
+
+/* Assign sections to the Grid Areas */
+.header-section    { grid-area: header; }
+.about-section     { grid-area: about; }
+.projects-section  { grid-area: projects; }
+.sidebar-section   { grid-area: sidebar; }
+
+/* Responsive Grid Adjustments (Media Query) */
+@media (max-width: 900px) {
+    .portfolio-grid {
+        /* Switch to a single column layout */
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "about"
+            "projects"
+            "sidebar"; /* Sidebar moves to the bottom */
+    }
+}
+
+/* ================================================= */
+/* 3. FLEXBOX (Centering and Inner Layout)           */
+/* ================================================= */
+
+/* FLEXBOX for Centering the HERO content */
+.header-section {
+    display: flex; 
+    /* Center all items horizontally */
+    justify-content: center; 
+    /* Center all items vertically */
+    align-items: center; 
+    /* Stack the content (title, photo, paragraph) vertically */
+    flex-direction: column; 
+    min-height: 40vh; /* Give it enough height to see the centering */
+    text-align: center;
+}
+
+/* FLEXBOX for arranging the list of Project Cards */
+.projects-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to drop to the next line */
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Center the cards if they don't fill the row */
+    margin-top: 20px;
+}
+
+/* FLEXBOX for inner card content (optional, but useful) */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: calc(50% - 10px); /* Two cards per row on larger screens */
+    min-height: 150px;
+    box-sizing: border-box;
+}
+
+/* Style fixes for the Contact form within the sidebar */
+.contact-form {
+    text-align: left;
+    /* Removed old max-width/margin as grid handles positioning */
+    padding: 0;
+}
+.contact-form label, .contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.contact-form button {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
