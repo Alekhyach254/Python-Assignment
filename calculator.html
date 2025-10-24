@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator & Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: space-around; padding: 20px; }
+        .container { border: 1px solid #ccc; padding: 20px; border-radius: 8px; width: 45%; }
+     
+        #calc-output { border: 1px solid #333; padding: 10px; margin-bottom: 10px; font-size: 1.5em; text-align: right; min-height: 20px; background-color: #f4f4f4; }
+        #calc-buttons button { padding: 10px; margin: 5px; font-size: 1.2em; cursor: pointer; }
+   
+        .form-group { margin-bottom: 15px; }
+        .error { color: red; font-size: 0.9em; display: block; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>JS Calculator (Factorial, Add, Subtract, Multiply, Divide)</h2>
+        
+        <label for="calcInput">Input:</label>
+        <input type="number" id="calcInput" placeholder="Enter a number for factorial">
+        <button onclick="calculateFactorial()">Calculate Factorial</button>
+        <hr>
+
+        <p>Basic Operations (Uses numbers 10 and 5 for demo):</p>
+        <div id="calc-buttons">
+            <button onclick="performOperation('add', 10, 5)">10 + 5</button>
+            <button onclick="performOperation('subtract', 10, 5)">10 - 5</button>
+            <button onclick="performOperation('multiply', 10, 5)">10 * 5</button>
+            <button onclick="performOperation('divide', 10, 5)">10 / 5</button>
+        </div>
+        
+        <p>Result:</p>
+        <div id="calc-output">0</div>
+    </div>
+
+    <div class="container">
+        <h2>Contact Form Validation</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <span class="error" id="nameError"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
+                <span class="error" id="emailError"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <span class="error" id="messageError"></span>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
