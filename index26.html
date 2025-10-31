@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive To-Do App</title>
+    <link rel="stylesheet" href="style26.css">
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+
+        <div class="input-area">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <ul id="taskList">
+            </ul>
+
+        <hr>
+
+        <button id="colorButton">Change Background Color</button>
+
+        <hr>
+
+        <div class="dropdown-area">
+            <select id="messageDropdown">
+                <option value="" disabled selected>Select a Message</option>
+                <option value="message1">Motivational Message</option>
+                <option value="message2">Reminder Message</option>
+                <option value="message3">Fun Fact</option>
+            </select>
+            <p id="dropdownMessage"></p>
+        </div>
+    </div>
+
+    <script src="script26.js"></script>
+</body>
+</html>
